@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import { Container, Card, Content,  Body, Text, Button, Item, CardItem, Input, Icon} from 'native-base';
 import { StyleSheet, Linking, Alert } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -19,13 +19,8 @@ class Registro extends Component {
             </Text>
           </CardItem>
           <Item>
-            <Text style={styles.textCenter}>Registrarse con una Red Social</Text>
           </Item>
-          <Item>
-            <Button primary style={styles.boton_red} onPress={() => Linking.openURL('https://web.facebook.com/jorge.hernandezaguilar1')}>
-              <Icon type='AntDesign' name='facebook-square'></Icon></Button>
-            <Button info style={styles.boton_red}><Icon type='FontAwesome' name='twitter-square' onPress={() => Linking.openURL('https://twitter.com/Yoye3110')}></Icon></Button>
-          </Item>
+          
           <CardItem bordered>
             <Body>
               <Item inlineLabel>
@@ -47,9 +42,16 @@ class Registro extends Component {
             </Body>
           </CardItem>
           <CardItem footer bordered>
-            <Button danger style={styles.boton}
+            <Button primary style={styles.boton}
             onPress={()=> Alert.alert('¡Usuario registrado!')}><Text> Registrarse </Text></Button>
           </CardItem>
+                      <Text style={styles.textCenter}>O Registrarse con...</Text>
+
+          <Item>
+            <Button primary  onPress={() => Linking.openURL('https://web.facebook.com')}>
+              <Icon type='AntDesign' name='facebook-square'></Icon></Button>
+            <Button info style={styles.boton_red}><Icon type='FontAwesome' name='twitter-square' onPress={() => Linking.openURL('https://twitter.com')}></Icon></Button>
+          </Item>
         </Card>
       </Content>
     </Container>
@@ -69,12 +71,9 @@ const styles = StyleSheet.create({
   boton: {
     marginLeft: '32%'
   },
-  boton_red: {
-    justifyContent: 'center',
-    width: 165.7,
-    marginLeft: '3%'
-  }
+  
 });
 
 
 export default Registro;
+
